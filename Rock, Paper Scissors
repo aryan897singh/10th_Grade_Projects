@@ -1,0 +1,26 @@
+#This is a game of Rock, Paper, Scissors!!
+import random
+
+options = ['rock','paper','scissors']
+
+
+def compchoice():
+  global Computer
+  Computer = random.choice(options)
+
+  return Computer
+
+def userchoice():
+   while True:
+    jj = ['R','P','S']
+    User = input("Please enter R, P or S: ")
+    if User in jj:
+      break
+    else :
+        print("No") 
+  
+  
+
+
+  
+  
