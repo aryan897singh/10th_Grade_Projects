@@ -1,0 +1,79 @@
+#This is for a hangman project
+
+# "apple", "banana", "orange", "strawberry", "pineapple", "watermelon", "grapefruit", "mango", "kiwi", #"peach", "blueberry", "raspberry", "lemon", "cherry", "avocado"
+import random
+
+def rword():
+  global list_of_words
+  global word
+  
+  list_of_words = ("apple", "banana", "orange", "strawberry", "pineapple", "watermelon", "grapefruit",     "mango", "kiwi", "peach", "blueberry", "raspberry", "lemon", "cherry", "avocado")
+
+  word = random.choice(list_of_words)
+
+  return word
+
+rword()
+
+def rspaces():
+  global spaces
+  spaces = ''
+  for i in word:
+    spaces = spaces +  " _"
+    spaces = spaces.strip()
+
+  return spaces
+
+
+
+word = rword()
+print(rword()) #for self use
+print(rspaces()) 
+
+
+word_list = list(word)
+
+correct_guess = 0
+wrong_guess = 0
+
+while wrong_guess < 6:
+  def ruser():
+    global user
+    while True:
+      user = input("Please enter a letter to guess: " ).lower()
+      if len(list(user)) == 1:
+        break 
+      else:
+        print("Please try again")
+      continue
+  
+    return user 
+  
+  
+  print(ruser()) #SELF USE
+   
+   
+  correct_guess = 0
+  wrong_guess = 0
+  
+  if user in word_list:
+    correct_guess += 1
+    index_no = word_list.index(user)
+    word_list[index_no] = "-"
+    spaces = list(spaces)
+    spaces[index_no] = user
+    spaces = ''.join(spaces)
+                  
+  #WHY AM I UNABLE TO REPLACE FROM HERE ABOVE, FIX THAT, MAKE HANGMAN AND LOOP IT 
+  
+  else:
+    wrong_guess += 1
+  
+  
+  print(spaces)
+  
+  
+  
+
+
+
